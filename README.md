@@ -1,2 +1,2 @@
-# arm64-os
+# arm64os
 educational os for arm64
