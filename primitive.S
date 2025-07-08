@@ -1,3 +1,18 @@
+#include "armv8def.h"
+
+    .global EnableInt
+    .type EnableInt,@function
+EnableInt:
+    MSR   DAIFClr,  #(DAIF_A | DAIF_F | DAIF_I)
+    ret
+    .size EnableInt,.-EnableInt
+
+    .global DisableInt
+    .type DisableInt,@function
+DisableInt:
+    MSR   DAIFSet,  #(DAIF_A | DAIF_F | DAIF_I)
+    ret
+    .size DisableInt,.-DisableInt
 
     .globl GetCoreID
     .type GetCoreID,@function
